@@ -1,0 +1,20 @@
+nums = [3, 6, 9, 3, 12, 15, 9]
+
+unique_nums = []
+for n in nums:
+    if n not in unique_nums:
+        unique_nums.append(n)
+
+even_set = {n for n in unique_nums if n % 2 == 0}
+min_tuple = tuple(sorted(unique_nums)[:5])
+num_dict = {i: n for i, n in enumerate(unique_nums)}
+duplicates = [n for n in nums if nums.count(n) > 1]
+
+print("Унікальні:", unique_nums)
+print("Парні числа (множина):", even_set)
+print("Мінімальні (кортеж):", min_tuple)
+print("Словник позицій:", num_dict)
+print("Кількість чисел:", len(nums))
+print("Дублікати:", set(duplicates))
+print("Мін:", min(nums), "Макс:", max(nums))
+
