@@ -1,0 +1,22 @@
+# Створення словника
+d = {'a': 1, 'b': 2, 'c': 3}
+print("Словник:", d)
+
+# Доступ і методи
+print("Значення ключа 'a':", d.get('a'))
+print("Ключі:", list(d.keys()))
+print("Значення:", list(d.values()))
+
+# Оновлення, додавання, видалення
+d.update({'b': 5, 'd': 7})
+print("Оновлено:", d)
+
+removed = d.pop('a')
+print("Видалено ключ 'a' зі значенням:", removed)
+print("Після видалення:", d)
+
+# Перетворення
+keys_list = list(d.keys())
+values_list = list(d.values())
+print("Ключі як список:", keys_list)
+print("Значення як список:", values_list)
