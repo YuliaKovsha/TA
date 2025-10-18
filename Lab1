@@ -1,0 +1,48 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double x1, y1, z1, x2, y2, z2;
+	double x3, y3, z3, x4, y4, z4;
+	double x5, y5, z5, x6, y6, z6;
+
+	cout << "Введіть початок і кінець вектора а: ";
+	cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2;
+
+	cout << "Введіть початок і кінець вектора b: ";
+	cin >> x3 >> y3 >> z3 >> x4 >> y4 >> z4;
+
+	cout << "Введіть початок і кінець вектора c: ";
+	cin >> x5 >> y5 >> z5 >> x6 >> y6 >> z6;
+
+	double ax = x2 - x1;
+	double ay = y2 - y1;
+	double az = z2 - z1;
+
+	double bx = x4 - x3;
+	double by = y4 - y3;
+	double bz = z4 - z3;
+
+	double cx = x6 - x5;
+	double cy = y6 - y5;
+	double cz = z6 - z5;
+
+	double crossx = by * cz - bz * cy;
+	double crossy = bz * cx - bx * cz;
+	double crossz = bx * cy - by * cx;
+
+	double res = ax * crossx + ay * crossy + az * crossz;
+
+	cout << "Скалярний добуток трьох векторів = " << res << endl;
+
+	if (res == 0) 
+	{
+		cout << "Вектори лежать в одній площині." << endl;
+	}
+	return 0;
+}
