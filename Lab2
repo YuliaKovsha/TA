@@ -1,0 +1,67 @@
+def linear(arr, x):
+    print("\nЛінійний пошук:")
+    k = 0
+    for i in range(len(arr)):
+        k += 1
+        print(f"Крок {k}: перевіряємо {arr[i]}")
+        if arr[i] == x:
+            print(f"Знайдено {x} на позиції {i}")
+            return i
+    print(f"{x} не знайдено")
+    return -1
+
+def binary(arr, x):
+    print("\nДвійковий пошук:")
+    l = 0
+    r = len(arr) - 1
+    k = 0
+    while l <= r:
+        k += 1
+        m = (l + r) // 2
+        print(f"Крок {k}: середній елемент {arr[m]}")
+        if arr[m] == x:
+            print(f"Знайдено {x} на позиції {m}")
+            return m
+        elif arr[m] < x:
+            l = m + 1
+        else:
+            r = m - 1
+    print(f"{x} не знайдено")
+    return -1
+
+def bubble(a):
+    print("\nСортування бульбашкою:")
+    n = len(a)
+    c = 0
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            c += 1
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+            print(f"Після кроку {c}: {a}")
+    print("Готово!")
+    return a
+
+def choice(a):
+    print("\nСортування вибором:")
+    n = len(a)
+    c = 0
+    for i in range(n):
+        m = i
+        for j in range(i + 1, n):
+            c += 1
+            if a[j] < a[m]:
+                m = j
+        a[i], a[m] = a[m], a[i]
+        print(f"Крок {i+1}: {a}")
+    print("Готово!")
+    return a
+
+arr = [7, 3, 8, 2, 5]
+print("Початковий масив:", arr)
+
+b = bubble(arr.copy())
+ch = choice(arr.copy())
+
+linear(arr, 5)
+binary(ch, 5)
