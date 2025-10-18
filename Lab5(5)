@@ -1,0 +1,20 @@
+import string
+
+text = "Sets remove duplicates automatically."
+
+# Перетворюємо текст у нижній регістр і видаляємо пунктуацію
+text = text.lower().translate(str.maketrans('', '', string.punctuation))
+
+# Створюємо список слів
+words_list = text.split()
+
+# Створюємо множину унікальних слів
+words_set = set(words_list)
+
+# Створюємо словник частот
+words_dict = {w: words_list.count(w) for w in words_set}
+
+# Вивід результатів
+print("Список слів:", words_list)
+print("Множина унікальних слів:", words_set)
+print("Словник частот:", words_dict)
