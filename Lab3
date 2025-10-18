@@ -1,0 +1,55 @@
+SIZE = 10
+table = [[] for _ in range(SIZE)]
+
+def hash_func(key):
+    return sum(ord(c) for c in key) % SIZE
+
+def add(key, value):
+    h = hash_func(key)
+    for k, v in table[h]:
+        if k == key:
+            print("Ключ уже існує!")
+            return
+    table[h].append((key, value))
+    print("Елемент додано.")
+
+def find(key):
+    h = hash_func(key)
+    for k, v in table[h]:
+        if k == key:
+            print(f"Знайдено: {v}")
+            return
+    print("Не знайдено.")
+
+def delete(key):
+    h = hash_func(key)
+    for pair in table[h]:
+        if pair[0] == key:
+            table[h].remove(pair)
+            print("Елемент видалено.")
+            return
+    print("Не знайдено для видалення.")
+
+def show():
+    for i in range(SIZE):
+        print(i, ":", table[i])
+
+while True:
+    print("\n1 - Додати, 2 - Знайти, 3 - Видалити, 4 - Показати, 0 - Вихід")
+    choice = input("Ваш вибір: ")
+    if choice == "1":
+        k = input("Введіть ім’я: ")
+        v = input("Введіть ID: ")
+        add(k, v)
+    elif choice == "2":
+        k = input("Введіть ім’я для пошуку: ")
+        find(k)
+    elif choice == "3":
+        k = input("Введіть ім’я для видалення: ")
+        delete(k)
+    elif choice == "4":
+        show()
+    elif choice == "0":
+        break
+    else:
+        print("Невірний вибір!")
