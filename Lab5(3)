@@ -1,0 +1,31 @@
+import string
+
+# Початковий рядок
+text = "Sets remove duplicates automatically."
+
+# 1. Перетворюємо рядок у нижній регістр і видаляємо пунктуацію
+text = text.lower()
+text = text.translate(str.maketrans('', '', string.punctuation))
+
+# 2. Створюємо список слів
+words = text.split()
+
+# 3. Створюємо множину унікальних слів
+unique_words = set(words)
+
+# 4. Створюємо кортеж слів, відсортованих за довжиною
+sorted_tuple = tuple(sorted(unique_words, key=len))
+
+# 5. Створюємо словник частот появи слів
+freq = {}
+for w in words:
+    freq[w] = freq.get(w, 0) + 1
+
+# 6. Виводимо статистику
+print("Список слів:", words)
+print("Множина унікальних:", unique_words)
+print("Кортеж відсортованих за довжиною:", sorted_tuple)
+print("Словник частот:", freq)
+print("Загальна кількість слів:", len(words))
+print("Кількість унікальних:", len(unique_words))
+print("Топ-5 найчастіших:", sorted(freq.items(), key=lambda x: x[1], reverse=True)[:5])
