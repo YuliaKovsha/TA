@@ -1,0 +1,44 @@
+# 1. Сума, різниця, частка та добуток
+a = float(input("Введіть перше число: "))
+b = float(input("Введіть друге число: "))
+print("Сума:", a + b)
+print("Різниця:", a - b)
+print("Добуток:", a * b)
+print("Частка:", a / b)
+
+# 2. Заміна голосних на * і підрахунок символів
+s = input("Введіть речення: ")
+vowels = "aeiouаеіоуяюєї"
+res = ""
+for ch in s:
+    if ch.lower() in vowels:
+        res += "*"
+    else:
+        res += ch
+print("Результат:", res)
+print("Кількість символів:", len(s))
+
+# 3. Перевірка числа
+n = int(input("Введіть число: "))
+if 100 < n < 999 and n % 7 == 0:
+    print("Так")
+else:
+    print("Ні")
+
+# 4. Числа до N, кратні 4 або 6
+N = int(input("Введіть N: "))
+for i in range(1, N):
+    if i % 4 == 0 or i % 6 == 0:
+        print(i, end=" ")
+
+# 5. Сума парних, менших за середнє
+nums = []
+while True:
+    x = int(input("Введіть число (0 - для завершення): "))
+    if x == 0:
+        break
+    nums.append(x)
+avg = sum(nums) / len(nums)
+even_sum = sum(i for i in nums if i % 2 == 0 and i < avg)
+print("\nСереднє:", avg)
+print("Сума парних менших за середнє:", even_sum)
